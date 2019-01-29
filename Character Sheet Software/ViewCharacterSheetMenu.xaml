@@ -1,0 +1,65 @@
+<Window x:Name="WindowViewCharacterSheetMenu" x:Class="Character_Sheet_Software.ViewCharacterSheetMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Character_Sheet_Software"
+        mc:Ignorable="d"
+        Title="Visualiser Fiche Personnage" Height="437.826" Width="765.437" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/background.jpg"/>
+    </Window.Background>
+    <Grid Margin="0,0,0.2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="CharacterImage" HorizontalAlignment="Left" Height="148" Margin="21,54,0,0" VerticalAlignment="Top" Width="147" Source="Images/male.jpg" Stretch="Fill"/>
+        <Button x:Name="ButtonCancel" Content="Retour" HorizontalAlignment="Left" Height="38" Margin="157,335,0,0" VerticalAlignment="Top" Width="221" Click="ButtonCancel_Click" Background="#3FDDDDDD" FontFamily="Century Gothic"/>
+        <Label x:Name="LabelTitle" Content="Fiche de personnage :" HorizontalAlignment="Left" Height="44" Margin="21,10,0,0" VerticalAlignment="Top" Width="714" FontSize="22" FontFamily="Century Gothic" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="CharacterListBox" HorizontalAlignment="Left" Height="256" Margin="1.6,85,0,0" VerticalAlignment="Top" Width="197" Grid.Column="1" SelectionChanged="CharacterListBox_SelectionChanged" Background="#3FFFFFFF" FontFamily="Century Gothic"/>
+        <Label x:Name="CharacterListLabel" Content="Listes des personnages :" HorizontalAlignment="Left" Margin="1.6,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.102,-0.05" Width="197" Grid.Column="1" FontFamily="Century Gothic"/>
+        <Button x:Name="DeleteButton" Content="Supprimer" Grid.Column="1" HorizontalAlignment="Left" Margin="1.6,346,0,0" VerticalAlignment="Top" Width="197" Height="35" Click="DeleteCharacter_Click" Background="#3FDDDDDD" FontFamily="Century Gothic"/>
+        <Button x:Name="InfosButtons" Content="Informations générales" HorizontalAlignment="Left" Margin="21,211,0,0" VerticalAlignment="Top" Width="147" Height="22" Click="PanelStats_Click" Background="#3FDDDDDD" FontFamily="Century Gothic" />
+        <Button x:Name="InventaireButton" Content="Inventaire" HorizontalAlignment="Left" Margin="21,238,0,0" VerticalAlignment="Top" Width="147" Height="22" Click="PanelInventaire_Click" Background="#3FDDDDDD" FontFamily="Century Gothic" />
+        <StackPanel x:Name="Panel1" HorizontalAlignment="Left" Height="259" Margin="173,71,0,0" VerticalAlignment="Top" Width="367">
+            <Grid x:Name="GridName" Margin="0,0,0.4,0" Height="29.4">
+                <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="29" Margin="90,0,-0.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" HorizontalContentAlignment="Center" IsReadOnly="True" Background="#3FFFFFFF"/>
+                <Label x:Name="LabelName" Content="Nom :" HorizontalAlignment="Left" Width="73" HorizontalContentAlignment="Center" FontFamily="Century Gothic" Margin="0,0,0,0.4"/>
+            </Grid>
+            <Grid x:Name="GridClasse" Margin="0,0,0.4,0" Height="29">
+                <Label x:Name="LabelClasse" Content="Classe :" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Center" FontFamily="Century Gothic"/>
+                <ComboBox x:Name="ComboBoxClasse" HorizontalAlignment="Right" Height="29" VerticalAlignment="Top" Width="277" IsReadOnly="True" IsEnabled="False" Margin="0,0,-0.2,0">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="#3FE5E5E5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                </ComboBox>
+            </Grid>
+            <Grid x:Name="GridSexe" Margin="0,0,0.4,0" Height="29.4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="267*"/>
+                    <ColumnDefinition Width="91*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="LabelGender" Content="Sexe :" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Center"/>
+                <RadioButton x:Name="RadioButtonGenderMale" Content="Masculin" HorizontalAlignment="Left" Height="23" Margin="90,6,0,0" VerticalAlignment="Top" Width="123" IsEnabled="False" FontFamily="Century Gothic"/>
+                <RadioButton x:Name="RadioButtonGenderFemale" Content="Féminin" HorizontalAlignment="Left" Height="23" Margin="213,6,0,0" VerticalAlignment="Top" Width="145" IsEnabled="False" Grid.ColumnSpan="2" FontFamily="Century Gothic"/>
+            </Grid>
+            <TextBlock x:Name="StatsTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Width="367" Height="170" VerticalAlignment="Bottom" FontFamily="Century Gothic"/>
+        </StackPanel>
+        <StackPanel x:Name="Panel2" HorizontalAlignment="Left" Height="276" Margin="173,54,0,0" VerticalAlignment="Top" Width="367" Visibility="Hidden">
+            <Grid Height="56" Margin="0,0,242.2,0">
+                <Label x:Name="LabelTitle_Copy" Content="Inventaire :" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="125" FontSize="20" FontFamily="Century Gothic"/>
+                <Button x:Name="DeleteEquipementButton" Content="Supprimer" HorizontalAlignment="Left" Margin="249,12,-230,18" Width="106" Click="DeleteEquipementButton_Click" Background="#3FDDDDDD" FontFamily="Century Gothic"/>
+                <Button x:Name="AddEquipementButton" Content="Ajouter" HorizontalAlignment="Left" Margin="130,12,-111,0" VerticalAlignment="Top" Width="106" Height="26" Click="AddEquipementButton_Click" Background="#3FDDDDDD" FontFamily="Century Gothic"/>
+            </Grid>
+            <ListBox x:Name="InventaireListBox" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="357" SelectionChanged="InventaireListBox_SelectionChanged" Background="#3FFFFFFF" FontFamily="Century Gothic"/>
+        </StackPanel>
+        <Label x:Name="LabelMoney" Content="Argent : " HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="147" HorizontalContentAlignment="Center" Margin="21,265,0,0" FontFamily="Century Gothic"/>
+
+
+    </Grid>
+</Window>
+

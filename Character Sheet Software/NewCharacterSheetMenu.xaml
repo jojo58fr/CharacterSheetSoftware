@@ -1,0 +1,26 @@
+<Window x:Name="WindowNewCharacterSheetMenu" x:Class="Character_Sheet_Software.NewCharacterSheetMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Character_Sheet_Software"
+        mc:Ignorable="d"
+        Title="Nouvelle Fiche Personnage" Height="351.933" Width="541.287" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/background.jpg"/>
+    </Window.Background>
+    <Grid>
+        <Image x:Name="CharacterImage" HorizontalAlignment="Left" Height="148" Margin="21,66,0,0" VerticalAlignment="Top" Width="147" Source="Images/male.jpg" Stretch="Fill"/>
+        <Button x:Name="ButtonValidate" Content="Valider" HorizontalAlignment="Left" Height="38" Margin="296,272,0,0" VerticalAlignment="Top" Width="226" Click="ButtonValidate_Click" Background="#3F8E8E8E" FontFamily="Century Gothic"/>
+        <Button x:Name="ButtonCancel" Content="Annuler" HorizontalAlignment="Left" Height="38" Margin="10,272,0,0" VerticalAlignment="Top" Width="221" Click="ButtonCancel_Click" Background="#3F8E8E8E" FontFamily="Century Gothic"/>
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="29" Margin="249,96,0,0" TextWrapping="Wrap" Text="Votre nom de personnage" VerticalAlignment="Top" Width="273" HorizontalContentAlignment="Center" SelectionChanged="TextBoxName_SelectionChanged" Background="#3F8E8E8E" FontFamily="Century Gothic" />
+        <Label x:Name="LabelName" Content="Nom :" HorizontalAlignment="Left" Height="29" Margin="157,96,0,0" VerticalAlignment="Top" Width="74" HorizontalContentAlignment="Center"/>
+        <Label x:Name="LabelClasse" Content="Classe :" HorizontalAlignment="Left" Height="29" Margin="157,130,0,0" VerticalAlignment="Top" Width="74" HorizontalContentAlignment="Center"/>
+        <Label x:Name="LabelGender" Content="Sexe :" HorizontalAlignment="Left" Height="29" Margin="157,164,0,0" VerticalAlignment="Top" Width="74" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="ComboBoxClasse" HorizontalAlignment="Left" Height="29" Margin="249,130,0,0" VerticalAlignment="Top" Width="273" Background="#3F8E8E8E"/>
+        <RadioButton x:Name="RadioButtonGenderMale" Content="Masculin" HorizontalAlignment="Left" Height="23" Margin="249,170,0,0" VerticalAlignment="Top" Width="125" Background="#3FFFFFFF" FontFamily="Century Gothic" IsChecked="True" Checked="RadioButtonGenderMale_Checked"/>
+        <RadioButton x:Name="RadioButtonGenderFemale" Content="Féminin" HorizontalAlignment="Left" Height="23" Margin="374,170,0,0" VerticalAlignment="Top" Width="148" Background="#3FFFFFFF" FontFamily="Century Gothic" Checked="RadioButtonGenderFemale_Checked"/>
+        <Label x:Name="LabelTitle" Content="Création Fiche de personnage" HorizontalAlignment="Left" Height="56" Margin="21,10,0,0" VerticalAlignment="Top" Width="501" FontSize="22" FontFamily="Century Gothic"/>
+
+    </Grid>
+</Window>
